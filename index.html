@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Date</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('heart.gif'); /* Path to your GIF image */
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #main-container {
+      margin: 50px auto;
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.7); /* Adding opacity to improve readability */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    #proposal-text {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    #yes-button, #no-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #yes-button:hover, #no-button:hover {
+      transform: scale(1.1);
+    }
+
+    #yes-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #no-button {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #angry-cat-img {
+      max-width: 150px; /* Adjusted size here */
+      margin-top: 10px;
+    }
+
+    #catflower-img {
+      max-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-container">
+  <audio id="bg-music" src="eun dan oh .mp3" preload="auto"></audio>
+    <img src="catflower.jpg" alt="catflower" id="catflower-img">  
+    <h1>HI<br>HAPPY VALENTINE'S DAY BABE!</h1>
+    <p id="proposal-text"> Will you be my Valentines date?</p>
+
+    <br>
+    <button id="yes-button" onclick="handleYes()">Yes</button>
+    <button id="no-button" onclick="handleNo()">No</button>
+  </div>
+
+  <script>
+    function handleYes() {
+	  var bgMusic = document.getElementById('bg-music');
+		bgMusic.play();
+      alert("Yeyy nagyes din!");
+	  
+      let loveMessage = "Happy Valentine's day my love! I'm so happy that I'll be celebrating this special day with you. I made you this to express my love and sincerity to you! Hehe konting efffort lang para sa love ko.\n\nI'm sorry sa mga pasaway ko babe, I know it takes every bit of you kapag tinitiis mo ako kasi nahuhurt ikaw sobra. I'm sorry if I always choose to keep my mouth shut kapag di tayo nag uusap. Ayaw ko lang madami arguments. Wish ko na sana maging patient lang tayo lagi sa isa't isa and sana di na tayo war freaks sa isa't isa hahahahaha.\n\nIloveyou hon! See you mamayaaa! Naeexcite ako kahit lagi man tayo nagdidate ngii.\n\nSincerely,\n\nYour elybee<3";
+
+      alert(loveMessage);
+}
+
+    let noButtonClickCount = 0;
+    function handleNo() {
+    noButtonClickCount++;
+    document.getElementById('no-button').style.width = `${100 + noButtonClickCount * 10}px`;
+
+    if (noButtonClickCount === 1) {
+        alert("Chut nagtatampo ikaw? Please consider hon ko...");
+    } else if (noButtonClickCount === 2) {
+       
+		 alert("Bakit no padin??? Pag isipan mo muna mabutiii...");
+    } else if (noButtonClickCount === 3) {
+	 var gifContainer = document.createElement('div');
+        gifContainer.id = 'gif-container'; // Assign an id for easier removal
+        gifContainer.innerHTML = '<img src="angry-cat.gif" alt="gif" style="max-width: 300px;">';
+        document.getElementById('main-container').appendChild(gifContainer);
+        alert("May ginawa kasi akoo,kwento ko mamayaa, magyes na daw ikaw...");
+	
+    } else if (noButtonClickCount === 4) {
+		 alert("Alisin ko nalang yan na no button hmp...");
+        // Remove the GIF container element if noButtonClickCount is 4
+        var gifContainer = document.getElementById('gif-container');
+        if (gifContainer) {
+            gifContainer.remove(); // Remove the GIF container from the DOM
+        }
+		 } else if (noButtonClickCount === 5) {
+        var noButton = document.getElementById('no-button');
+        if (noButton) {
+            noButton.remove();
+			}
+		alert("Stop na ang pagpress ng no button...");
+			
+    } else {
+        alert("Stop na ang pagpress ng no button pls...");
+		
+    }
+}
+  </script>
+</body>
+</html>
